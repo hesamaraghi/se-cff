@@ -4,8 +4,7 @@ build/
 
 # vs code
 .vscode/
-
-data/
+data
 sbatch_folder/
 slurm_output/
 _test*
