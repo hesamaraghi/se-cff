@@ -4,3 +4,12 @@ build/
 
 # vs code
 .vscode/
+
+data/
+sbatch_folder/
+slurm_output/
+_test*
+*.log
+*.h5
+*.npy
+sbatch_history.txt
