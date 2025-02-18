@@ -332,6 +332,7 @@ def process_sequence_event(args: Tuple[Path, Path, Path, Path, bool, Path, dict,
                 )
     except Exception as e:
         logging.error(f"Failed to process sequence {seq}: {e}")
+        exit(1)
 
 def process_sequence_depth(args: Tuple[Path, Path, Path, Path, bool, Path, dict, int]):
     """
@@ -355,6 +356,7 @@ def process_sequence_depth(args: Tuple[Path, Path, Path, Path, bool, Path, dict,
                 )
     except Exception as e:
         logging.error(f"Failed to process depth for sequence {seq}: {e}")
+        exit(1)
 
 def read_intrinsic_calibration(calibration_path, cam):
     intrinsic_path = os.path.join(calibration_path,'intrinsic_calibration_results')
@@ -428,7 +430,7 @@ def convert_NSEK2DSEC(
     ]
 
     # Determine the number of processes to use
-    num_processes = min(multiprocessing.cpu_count(), len(sequences))
+    num_processes = min(multiprocessing.cpu_count(), len(2 * sequences))
     if sys.gettrace():
         num_processes = 1
         logging.warning("Debugger is active. Running with a single process.")
