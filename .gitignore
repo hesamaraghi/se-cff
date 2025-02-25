@@ -13,3 +13,5 @@ _test*
 *.h5
 *.npy
 sbatch_history.txt
+preprocess_*
+submit_*
