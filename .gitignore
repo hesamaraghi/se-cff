@@ -6,7 +6,7 @@ build/
 .vscode/
 data
 sbatch_folder/
-saved_results/
+saved_results*/
 slurm_output/
 _test*
 *.log
