@@ -202,7 +202,10 @@ def convert_depth_map(
         except ValueError:
             logging.error(f"Failed to convert timestamp from file {file}. Skipping.")
             continue
-    
+    if len(timestamps ) == 0 and len(annotations_folder.glob('*.tif')) == 0:
+        logging.error(f"There is no depth files in {str(annotations_folder)}")
+        return
+        
     # Sort the timestamps
     timestamps = np.sort(np.array(timestamps, dtype=np.float64))
     
@@ -438,16 +441,13 @@ def convert_NSEK2DSEC(
     logging.info(f"Starting multiprocessing with {num_processes} processes.")
     # Initialize multiprocessing pool
         
-    with multiprocessing.Pool(processes=num_processes) as pool1, \
-         multiprocessing.Pool(processes=num_processes) as pool2:
-        results_event = pool1.imap(process_sequence_event, args_list)
+    with multiprocessing.Pool(processes=num_processes) as pool2:
         results_depth = pool2.imap(process_sequence_depth, args_list)
         
         # Using tqdm for progress bars (you can also iterate concurrently if desired)
-        list(tqdm(results_event, total=len(args_list), desc="Processing sequences: events"))
         list(tqdm(results_depth, total=len(args_list), desc="Processing sequences: depth"))
 
-    logging.info("All sequences have been processed.")
+    logging.info("Depth has been processed.")
 
 # ----------------------------- Main Function -----------------------------
 
@@ -506,6 +506,14 @@ def main():
     if not kitchen_folder.exists() or not kitchen_folder.is_dir():
         logging.error(f"Kitchen folder {kitchen_folder} does not exist or is not a directory.")
         exit(1)
+    
+    logging.info(f"Converting kitchen '{args.kitchen_name}' ...")
+    logging.info(f"Raw folder: {raw_folder}")
+    logging.info(f"Annotations folder: {annotations_folder}")
+    logging.info(f"Calibration folder: {calibration_folder}")
+    logging.info(f"Save to: {save_to}")
+    logging.info(f"Chunk size: {args.chunk_size}")
+    logging.info(f"Training data: {args.train}")
 
     # Start conversion
     try:
