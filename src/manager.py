@@ -75,6 +75,9 @@ class DLManager:
 
             for sequence_dataloader in test_loader:
                 sequence_name = sequence_dataloader.dataset.sequence_name
+                print("#"*50, flush=True)
+                print(sequence_name,flush=True)
+                print("#"*50, flush=True)
                 sequence_pred_list = self.method.test(model=self.model,
                                                       data_loader=sequence_dataloader)
 

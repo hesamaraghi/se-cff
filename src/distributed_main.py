@@ -8,14 +8,14 @@ from utils.config import get_cfg
 
 # Argument Parser
 parser = argparse.ArgumentParser()
-parser.add_argument('--config_path', type=str, default='/root/code/configs/config.yaml')
-parser.add_argument('--data_root', type=str, default='/root/data/DSEC')
-parser.add_argument('--save_root', type=str, default='/root/code/save')
+parser.add_argument('--config-path', type=str, default='/root/code/configs/config.yaml')
+parser.add_argument('--data-root', type=str, default='/root/data/DSEC')
+parser.add_argument('--save-root', type=str, default='/root/code/save')
 
-parser.add_argument('--num_workers', type=int, default=4)
-parser.add_argument('--save_term', type=int, default=25)
+parser.add_argument('--num-workers', type=int, default=4)
+parser.add_argument('--save-term', type=int, default=25)
 
-parser.add_argument('--local_rank', type=int, default=-1)
+parser.add_argument('--local-rank', type=int, default=-1)
 
 args = parser.parse_args()
 
