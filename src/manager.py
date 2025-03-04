@@ -21,7 +21,7 @@ class DLManager:
         if self.cfg is not None:
             self._init_from_cfg(cfg)
 
-        self.current_epoch = 0
+        self.current_epoch = 0  # Initialize epoch
 
     def _init_from_cfg(self, cfg):
         assert cfg is not None
@@ -48,10 +48,13 @@ class DLManager:
 
         time_checker = TimeCheck(self.cfg.TOTAL_EPOCH)
         time_checker.start()
+
+        # Resume from the last saved epoch
         for epoch in range(self.current_epoch, self.cfg.TOTAL_EPOCH):
             if self.args.is_distributed:
                 dist.barrier()
                 train_loader.sampler.set_epoch(epoch)
+
             train_log_dict = self.method.train(model=self.model,
                                                data_loader=train_loader,
                                                optimizer=self.optimizer,
@@ -60,8 +63,10 @@ class DLManager:
 
             self.scheduler.step()
             self.current_epoch += 1
+
             if self.args.is_distributed:
                 train_log_dict = self._gather_log(train_log_dict)
+
             if self.args.is_master:
                 self._log_after_epoch(epoch + 1, time_checker, train_log_dict, 'train')
 
@@ -75,9 +80,10 @@ class DLManager:
 
             for sequence_dataloader in test_loader:
                 sequence_name = sequence_dataloader.dataset.sequence_name
-                print("#"*50, flush=True)
-                print(sequence_name,flush=True)
-                print("#"*50, flush=True)
+                print("#" * 50, flush=True)
+                print(sequence_name, flush=True)
+                print("#" * 50, flush=True)
+
                 sequence_pred_list = self.method.test(model=self.model,
                                                       data_loader=sequence_dataloader)
 
@@ -98,9 +104,15 @@ class DLManager:
         self._init_from_cfg(checkpoint['cfg'])
 
         self.model.module.load_state_dict(checkpoint['model'])
+        self.optimizer.load_state_dict(checkpoint['optimizer'])
+        self.scheduler.load_state_dict(checkpoint['scheduler'])
+
+        # Restore the last saved epoch
+        self.current_epoch = checkpoint['epoch']
+        print(f"Resumed training from epoch {self.current_epoch}")
 
     def _make_checkpoint(self):
-        checkpoint = {
+        return {
             'epoch': self.current_epoch,
             'args': self.args,
             'cfg': self.cfg,
@@ -108,8 +120,6 @@ class DLManager:
             'optimizer': self.optimizer.state_dict(),
             'scheduler': self.scheduler.state_dict(),
         }
-
-        return checkpoint
 
     def _gather_log(self, log_dict):
         if log_dict is None:

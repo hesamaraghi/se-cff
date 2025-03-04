@@ -15,3 +15,4 @@ _test*
 sbatch_history.txt
 preprocess_*
 submit_*
+wandb/
