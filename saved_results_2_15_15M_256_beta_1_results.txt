@@ -1,0 +1,81 @@
+==================================================
+ Depth Estimation Results for Experiment: saved_results_2_15_15M_256_beta_1 
+==================================================
+
+Activity: K_EWI_cereal_bowl
+  - RMSE: 87.0225
+  - MAE: 53.3906
+  - Baseline_STD: 123.5655
+  - Baseline_MAD: 99.6548
+
+--------------------------------------------------
+Activity: K_EWI_wash_dish_2
+  - RMSE: 95.9115
+  - MAE: 56.0946
+  - Baseline_STD: 132.6174
+  - Baseline_MAD: 112.6261
+
+--------------------------------------------------
+Activity: K_Alejandro_fry_egg
+  - RMSE: 68.7029
+  - MAE: 44.4393
+  - Baseline_STD: 82.7998
+  - Baseline_MAD: 60.5507
+
+--------------------------------------------------
+Activity: K_Alejandro_fry_pepper
+  - RMSE: 67.8230
+  - MAE: 45.8609
+  - Baseline_STD: 80.8969
+  - Baseline_MAD: 59.0038
+
+--------------------------------------------------
+Activity: K_SXW_coffee
+  - RMSE: 58.6882
+  - MAE: 38.0393
+  - Baseline_STD: 98.4039
+  - Baseline_MAD: 73.7695
+
+--------------------------------------------------
+Activity: K_EWI_cut_bread
+  - RMSE: 91.7247
+  - MAE: 54.8249
+  - Baseline_STD: 132.3601
+  - Baseline_MAD: 107.0519
+
+--------------------------------------------------
+Activity: K_SXW_cut_bread
+  - RMSE: 58.9696
+  - MAE: 39.7001
+  - Baseline_STD: 79.9580
+  - Baseline_MAD: 62.2178
+
+--------------------------------------------------
+Activity: K_SXW_tea_2
+  - RMSE: 77.7445
+  - MAE: 54.8806
+  - Baseline_STD: 111.5067
+  - Baseline_MAD: 98.5030
+
+--------------------------------------------------
+Activity: K_SGHC_coffee
+  - RMSE: 176.3455
+  - MAE: 116.9607
+  - Baseline_STD: 187.5029
+  - Baseline_MAD: 131.3861
+
+--------------------------------------------------
+Activity: K_SGHC_vege_salad
+  - RMSE: 123.9728
+  - MAE: 81.5071
+  - Baseline_STD: 115.9692
+  - Baseline_MAD: 87.0288
+
+--------------------------------------------------
+Activity: Overall
+  - RMSE: 84.9127
+  - MAE: 54.8480
+  - Baseline_STD: 106.2620
+  - Baseline_MAD: 81.9957
+
+--------------------------------------------------

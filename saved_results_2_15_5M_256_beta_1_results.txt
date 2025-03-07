@@ -1,0 +1,81 @@
+==================================================
+ Depth Estimation Results for Experiment: saved_results_2_15_5M_256_beta_1 
+==================================================
+
+Activity: K_EWI_cereal_bowl
+  - RMSE: 87.4154
+  - MAE: 53.8821
+  - Baseline_STD: 123.5655
+  - Baseline_MAD: 99.6548
+
+--------------------------------------------------
+Activity: K_EWI_wash_dish_2
+  - RMSE: 97.2787
+  - MAE: 57.9627
+  - Baseline_STD: 132.6174
+  - Baseline_MAD: 112.6261
+
+--------------------------------------------------
+Activity: K_Alejandro_fry_egg
+  - RMSE: 70.7131
+  - MAE: 47.2423
+  - Baseline_STD: 82.7998
+  - Baseline_MAD: 60.5507
+
+--------------------------------------------------
+Activity: K_Alejandro_fry_pepper
+  - RMSE: 70.5902
+  - MAE: 48.7089
+  - Baseline_STD: 80.8969
+  - Baseline_MAD: 59.0038
+
+--------------------------------------------------
+Activity: K_SXW_coffee
+  - RMSE: 57.7163
+  - MAE: 36.3991
+  - Baseline_STD: 98.4039
+  - Baseline_MAD: 73.7695
+
+--------------------------------------------------
+Activity: K_EWI_cut_bread
+  - RMSE: 89.2949
+  - MAE: 54.0322
+  - Baseline_STD: 132.3601
+  - Baseline_MAD: 107.0519
+
+--------------------------------------------------
+Activity: K_SXW_cut_bread
+  - RMSE: 58.5417
+  - MAE: 38.6702
+  - Baseline_STD: 79.9580
+  - Baseline_MAD: 62.2178
+
+--------------------------------------------------
+Activity: K_SXW_tea_2
+  - RMSE: 77.1406
+  - MAE: 53.4433
+  - Baseline_STD: 111.5067
+  - Baseline_MAD: 98.5030
+
+--------------------------------------------------
+Activity: K_SGHC_coffee
+  - RMSE: 199.4604
+  - MAE: 136.0015
+  - Baseline_STD: 187.5029
+  - Baseline_MAD: 131.3861
+
+--------------------------------------------------
+Activity: K_SGHC_vege_salad
+  - RMSE: 138.0152
+  - MAE: 88.5187
+  - Baseline_STD: 115.9692
+  - Baseline_MAD: 87.0288
+
+--------------------------------------------------
+Activity: Overall
+  - RMSE: 88.2122
+  - MAE: 57.3809
+  - Baseline_STD: 106.2620
+  - Baseline_MAD: 81.9957
+
+--------------------------------------------------
