@@ -100,7 +100,7 @@ class DLManager:
         self.logger.save_checkpoint(checkpoint, name)
 
     def load(self, name):
-        checkpoint = self.logger.load_checkpoint(name)
+        checkpoint = ExpLogger(save_root=self.args.save_root).load_checkpoint(name)
         self._init_from_cfg(checkpoint['cfg'])
 
         self.model.module.load_state_dict(checkpoint['model'])
